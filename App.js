@@ -27,6 +27,8 @@ import {
 
 import { TextInput,Provider as PaperProvider } from 'react-native-paper';
 
+import Email from './components/EntradaDEmail';
+
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
 const Section = ({children, title})  => {
@@ -76,6 +78,7 @@ const App = () => {
     label='Flat input'
     mode='flat'
   />
+  <Email name="haha"/>
       </PaperProvider>
   );
 };
