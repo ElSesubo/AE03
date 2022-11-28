@@ -25,6 +25,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { TextInput } from 'react-native-paper';
+
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
 const Section = ({children, title})  => {
@@ -77,6 +79,11 @@ const App = () => {
         style={backgroundStyle}>
         {nom("manel")}
       </ScrollView>
+      <TextInput
+    style={{ marginTop: 15 }}
+    label='Flat input'
+    mode='flat'
+  />
     </SafeAreaView>
   );
 };
@@ -98,6 +105,11 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  estilDeText: {
+    color: 'blue',
+    fontSize: 25,
+    fontWeight: 'bold',
+    },
 });
 
 export default App;
