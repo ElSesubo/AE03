@@ -25,7 +25,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { TextInput } from 'react-native-paper';
+import { TextInput,Provider as PaperProvider } from 'react-native-paper';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -55,9 +55,9 @@ const Section = ({children, title})  => {
   );
 };
 
-function nom(nombre){
+function nom(nombre,style1){
   return(
-    <Text>{nombre}</Text>
+    <Text style={style1}>{nombre}</Text>
   )
 }
 
@@ -69,22 +69,14 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        {nom("manel")}
-      </ScrollView>
+      <PaperProvider>
+        {nom('Manel Viel', styles.estilDeText)}
       <TextInput
     style={{ marginTop: 15 }}
     label='Flat input'
     mode='flat'
   />
-    </SafeAreaView>
+      </PaperProvider>
   );
 };
 
