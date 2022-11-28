@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "react-native": "^0.70.6",
+    "react-native-paper": "^5.0.0-rc.10",
+    "react-native-vector-icons": "^9.2.0",
     "redux": "^4.2.0"
   }
 }
