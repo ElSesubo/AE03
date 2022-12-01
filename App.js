@@ -78,7 +78,7 @@ const App = () => {
     label='Flat input'
     mode='flat'
   />
-  <Email name="haha"/>
+  <Email/>
       </PaperProvider>
   );
 };

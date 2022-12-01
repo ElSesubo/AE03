@@ -6,18 +6,29 @@ import { useState } from 'react';
 function Email() {
     const [text, setText] = useState("");
     const [check,setCheck] = useState("");
+    const [Merror,setMError]=useState("");
+    const [listaEmail,setListaEmail] = useState(["edu@gmail.com"]);
+
+    function comprobar(){
+        for(i = 0; i <listaEmail.length; i++){
+            if(text.toUpperCase()==listaEmail[i].toUpperCase()){
+                setCheck("check");
+                setMError("");
+                break;
+            }else{
+                setMError("Email incrrecto o no existe");
+            }
+        }
+    }
+
     function comparar(){
         if(/^[a-zA-Z]+\@[a-zA-Z\_\-0-9]+\.[a-z]{2,5}$/.test(text)){
-            setText(text);
-            setCheck("check");
+            comprobar();
         }else{
-            alert("Falso");
+            setMError("El formato del email esta mal!");
             setCheck("");
         }
     }
-    const checkErrors = () => {
-        return !text.includes("@");
-      };
     return (
         <><TextInput
         style={styles.em}
@@ -26,11 +37,11 @@ function Email() {
         keyboardType="email-address"
         
         onChangeText={text => setText(text)}
-        onSubmitEditing={()=>comparar()}
-        right={<TextInput.Icon icon={check} disabled={true}/>}/>
-        <HelperText type="error" visible={checkErrors()}>
-        Email Id is invalid
-      </HelperText>
+        onBlur={()=>comparar()}
+        right={<TextInput.Icon icon={check} iconColor={"#00bb2d"} size={30}/>}/>
+        <HelperText type="error" visible={true}>
+        {Merror}
+        </HelperText>
         </>);
 }
 const styles = StyleSheet.create({
